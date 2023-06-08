@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import MiniDePin
 
 /**
  A protocol that abstracts away network operations.

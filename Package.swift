@@ -1,4 +1,4 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 5.8
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,11 +6,11 @@ import PackageDescription
 let package = Package(
     name: "NetworkDependency",
     platforms: [
-        .iOS(.v11),
+        .iOS(.v13),
         .macCatalyst(.v13),
-        .macOS(.v10_13),
-        .tvOS(.v11),
-        .watchOS(.v4)
+        .macOS(.v10_15),
+        .tvOS(.v13),
+        .watchOS(.v6)
     ],
     products: [
         .library(
@@ -25,7 +25,7 @@ let package = Package(
         .target(
             name: "NetworkDependency",
             dependencies: ["GlobalDependencies"]
-        )
+        ),
         .testTarget(
             name: "NetworkDependencyTests",
             dependencies: ["GlobalDependencies"]
