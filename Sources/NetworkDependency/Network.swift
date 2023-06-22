@@ -8,15 +8,15 @@
 import Foundation
 
 /**
- A protocol that abstracts away network operations.
+ An abstract façade protocol for network operations.
 
- So far the only one we've needed abstracting is fetching data from a URL.
+ So far the only one we've needed is fetching data from a URL. Others will be added as needed.
  */
 public protocol Network {
     /**
      Returns a task that asynchronously fetches data from the given URL, or throws otherwise.
      - Parameter url: The url pointing to the data we want to fetch.
-     - Returns: A `Task` that can be awaited for the data or which will `throw` if there is an error fetching it.
+     - Returns: The data located at `url`.
      */
-    func dataTask(url: URL) -> Task<Data, Error>
+    func dataFor(url: URL) async throws -> Data
 }

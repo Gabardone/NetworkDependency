@@ -22,10 +22,8 @@ public struct SystemNetwork {
 }
 
 extension SystemNetwork: Network {
-    public func dataTask(url: URL) -> Task<Data, Error> {
-        Task {
-            let (data, _) = try await urlSession.data(from: url)
-            return data
-        }
+    public func dataFor(url: URL) async throws -> Data {
+        let (data, _) = try await urlSession.data(from: url)
+        return data
     }
 }

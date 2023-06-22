@@ -6,6 +6,7 @@ import PackageDescription
 let package = Package(
     name: "NetworkDependency",
     platforms: [
+        // Minimum deployment version bound by `async/await` support.
         .iOS(.v13),
         .macCatalyst(.v13),
         .macOS(.v10_15),
@@ -28,7 +29,7 @@ let package = Package(
         ),
         .testTarget(
             name: "NetworkDependencyTests",
-            dependencies: ["GlobalDependencies"]
+            dependencies: ["NetworkDependency"]
         )
     ]
 )
