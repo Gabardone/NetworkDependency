@@ -14,8 +14,8 @@ import Foundation
  dependency overrides fail to work.
   */
 public struct MockNetwork {
-    public init(dataTaskOverride: ((URL) -> Task<Data, Error>)? = nil) {
-        self.dataTaskOverride = dataTaskOverride
+    public init(dataForURLOverride: ((URL) async throws -> Data)? = nil) {
+        self.dataForURLOverride = dataForURLOverride
     }
 
     /**
@@ -25,17 +25,15 @@ public struct MockNetwork {
         case unexpectedCall(String)
     }
 
-    var dataTaskOverride: ((URL) -> Task<Data, Error>)?
+    var dataForURLOverride: ((URL) async throws -> Data)?
 }
 
 extension MockNetwork: Network {
-    public func dataTask(url: URL) -> Task<Data, Error> {
-        if let dataTaskOverride {
-            return dataTaskOverride(url)
+    public func dataFor(url: URL) async throws -> Data {
+        if let dataForURLOverride {
+            return try await dataForURLOverride(url)
         } else {
-            return Task {
-                throw MockError.unexpectedCall(#function)
-            }
+            throw MockError.unexpectedCall(#function)
         }
     }
 }
