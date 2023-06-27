@@ -14,11 +14,11 @@ import Foundation
  By default they are created using `URLSession.shared` but the option exists to use a different one.
  */
 public struct SystemNetwork {
-    init(urlSession: URLSession = .shared) {
+    public init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
     }
 
-    let urlSession: URLSession
+    public let urlSession: URLSession
 }
 
 extension SystemNetwork: Network {
