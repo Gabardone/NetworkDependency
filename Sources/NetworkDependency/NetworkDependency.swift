@@ -15,10 +15,12 @@ public protocol NetworkDependency: Dependencies {
     var network: any Network { get }
 }
 
-extension GlobalDependencies: NetworkDependency {
-    private static let defaultNetwork: any Network = SystemNetwork()
+public struct NetworkDependencyKey: DependencyKey {
+    public static let defaultValue: any Network = SystemNetwork()
+}
 
+extension GlobalDependencies: NetworkDependency {
     public var network: any Network {
-        resolveDependency(forKeyPath: \.network, defaultImplementation: Self.defaultNetwork)
+        resolveDependencyFor(key: NetworkDependencyKey.self)
     }
 }
