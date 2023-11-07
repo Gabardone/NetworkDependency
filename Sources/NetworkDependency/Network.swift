@@ -13,7 +13,7 @@ import Foundation
 
  So far the only one we've needed is fetching data from a URL. Others will be added as needed.
  */
-@Dependency(defaultValueType: SystemNetwork)
+@Dependency()
 public protocol Network {
     /**
      Returns a task that asynchronously fetches data from the given URL, or throws otherwise.
@@ -28,4 +28,13 @@ public protocol Network {
  */
 extension GlobalDependencies: Network.Dependency {
     public #GlobalDependency(type: Network)
+}
+
+/**
+ Default dependency value factory.
+ */
+private struct DefaultNetworkValueFactory: DefaultDependencyValueFactory {
+    static func makeDefaultValue() -> SystemNetwork {
+        return SystemNetwork()
+    }
 }
