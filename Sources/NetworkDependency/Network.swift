@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@_exported import GlobalDependencies
+import GlobalDependencies
 
 /**
  An abstract façade protocol for network operations.
@@ -35,6 +35,6 @@ extension GlobalDependencies: Network.Dependency {
  */
 private struct DefaultNetworkValueFactory: DefaultDependencyValueFactory {
     static func makeDefaultValue() -> SystemNetwork {
-        return SystemNetwork()
+        SystemNetwork()
     }
 }

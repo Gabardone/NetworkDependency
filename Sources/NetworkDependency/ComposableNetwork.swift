@@ -18,7 +18,7 @@ public struct ComposableNetwork {
         self.dataForURLOverride = dataForURLOverride
     }
 
-    var dataForURLOverride: (URL) async throws -> Data
+    public var dataForURLOverride: (URL) async throws -> Data
 }
 
 extension ComposableNetwork: Network {
