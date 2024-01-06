@@ -13,7 +13,7 @@ import Foundation
 
  By default they are created using `URLSession.shared` but the option exists to use a different one.
  */
-public struct SystemNetwork {
+struct SystemNetwork {
     public init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
     }
