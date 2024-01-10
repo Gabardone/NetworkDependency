@@ -36,7 +36,7 @@ If developing your own package, you can add the following lines to your `Package
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/Gabardone/NetworkDependency", from: "2.0.0"),
+    .package(url: "https://github.com/Gabardone/NetworkDependency", from: "4.0.0"),
 ]
 ```
 
